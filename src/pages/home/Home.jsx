@@ -1,5 +1,5 @@
 import { MyTable } from "../../components/table/Table";
-import { Chart } from "../../components/chart/Chart";
+import  Chart  from "../../components/chart/Chart";
 import { Featured } from "../../components/featured/Featured";
 import { Navbar } from "../../components/navbar/Navbar";
 import { Sidebar } from "../../components/sidebar/Sidebar";
@@ -21,7 +21,7 @@ const Home = () => {
         </div>
         <div className="charts">
           <Featured />
-          <Chart />
+          <Chart aspect={2/1} title='Last 8 month (Revenu)' />
         </div>
         <div className="listContainer">
           <div className="listTitle">Latest transaction</div>

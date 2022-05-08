@@ -2,7 +2,6 @@ import {
   AreaChart,
   Area,
   XAxis,
-  YAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
@@ -14,18 +13,18 @@ const data = [
   { name: "January", Total: 1000 },
   { name: "February", Total: 1200 },
   { name: "March", Total: 1400 },
-  { name: "April", Total: 1600 },
+  { name: "April", Total: 600 },
   { name: "May", Total: 800 },
   { name: "June", Total: 700 },
   { name: "July ", Total: 100 },
-  { name: "August", Total: 1900 },
+  { name: "August", Total: 900 },
 ];
 
-export const Chart = () => {
+const Chart = ({ aspect, title }) => {
   return (
     <div className="chart">
-      <div className="title">Last 8 month (Revenu) </div>
-      <ResponsiveContainer width="100%" height="100%">
+      <div className="title">{title}</div>
+      <ResponsiveContainer width="100%" aspect={aspect}>
         <AreaChart
           width={730}
           height={250}
@@ -38,8 +37,7 @@ export const Chart = () => {
               <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis dataKey="name" stroke="gray" />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Area
@@ -54,3 +52,5 @@ export const Chart = () => {
     </div>
   );
 };
+
+export default Chart;
