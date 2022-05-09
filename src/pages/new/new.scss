@@ -1,9 +1,82 @@
-.new{
-    width: 100%;
-    display: flex;
+.new {
+  width: 100%;
+  display: flex;
 
+  .newContainer {
+    flex: 6;
 
-    .newContainer{
-        flex: 6;
+    .headerNew,
+    .contentNew {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      padding: 10px;
+      margin: 20px;
+      display: flex;
+
+      h1 {
+        color: rgb(181, 181, 181);
+        font-size: 26px;
+      }
+
+      .user {
+        flex: 1;
+        text-align: center;
+
+        .imgUser {
+          height: 100px;
+          width: 100px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+      .info {
+        flex: 2;
+
+        form {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: space-around;
+
+          .formGruop {
+            width: 40%;
+
+            label {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .iconUpload {
+                cursor: pointer;
+              }
+            }
+
+            input {
+              width: 100%;
+              padding: 5px;
+              border: none;
+              border-bottom: 1px solid #333;
+              
+              &:focus {
+                outline: none;
+              }
+            }
+          }
+          button {
+            border: none;
+            background-color: aquamarine;
+            color: #333;
+            width: 150px;
+            padding: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+
+            &:hover {
+              background-color: #83ff7fbb;
+            }
+          }
+        }
+      }
     }
+  }
 }

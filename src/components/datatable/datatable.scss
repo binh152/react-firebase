@@ -2,6 +2,31 @@
   height: 90vh;
   padding: 20px;
 
+  .title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    justify-content: space-between;
+  }
+
+  .link {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #00921b34;
+
+    &:hover{
+      box-shadow: unset;
+    }
+  }
+
   .cellWidthImg {
     display: flex;
     align-items: center;
@@ -41,11 +66,10 @@
       border: 1px solid rgb(77, 77, 77);
     }
     .deleteBtn {
-        padding: 2px 5px;
-        border-radius: 5px;
-        color: #d80000;
-        border: 1px solid rgb(155, 57, 57);
-      }
-}
-
+      padding: 2px 5px;
+      border-radius: 5px;
+      color: #d80000;
+      border: 1px solid rgb(155, 57, 57);
+    }
+  }
 }

@@ -66,14 +66,14 @@ export const MyTable = () => {
     <TableContainer component={Paper} className='table'>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell className="tableCell">TrackingID</TableCell>
-            <TableCell className="tableCell">Product</TableCell>
-            <TableCell className="tableCell">Customer</TableCell>
-            <TableCell className="tableCell">Date</TableCell>
-            <TableCell className="tableCell">Amount</TableCell>
-            <TableCell className="tableCell">Payment method</TableCell>
-            <TableCell className="tableCell">Status</TableCell>
+          <TableRow className="headerTb" >
+            <TableCell className="tableCell td">TrackingID</TableCell>
+            <TableCell className="tableCell td">Product</TableCell>
+            <TableCell className="tableCell td">Customer</TableCell>
+            <TableCell className="tableCell td">Date</TableCell>
+            <TableCell className="tableCell td">Amount</TableCell>
+            <TableCell className="tableCell td">Payment method</TableCell>
+            <TableCell className="tableCell td">Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

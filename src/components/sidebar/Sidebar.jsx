@@ -9,8 +9,9 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-
 import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
+
+import { Link } from "react-router-dom";
 
 import "./sidebar.scss";
 
@@ -18,7 +19,9 @@ export const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <span className="logo">Admin</span>
+        <Link className="link" to="/">
+          <span className="logo">Admin</span>
+        </Link>
       </div>
       <hr />
       <div className="center">
@@ -29,15 +32,18 @@ export const Sidebar = () => {
             <span>Dashboard</span>
           </li>
           <p className="title">lIST</p>
-
-          <li>
-            <PersonOutlineOutlinedIcon className="icon" />
-            <span>User</span>
-          </li>
-          <li>
-            <Inventory2OutlinedIcon className="icon" />
-            <span>Products</span>
-          </li>
+          <Link className="link" to="/users" >
+            <li>
+              <PersonOutlineOutlinedIcon className="icon" />
+              <span>User</span>
+            </li>
+          </Link>
+          <Link className="link" to="/product" >
+            <li>
+              <Inventory2OutlinedIcon className="icon" />
+              <span>Products</span>
+            </li>
+          </Link>
           <li>
             <InventoryOutlinedIcon className="icon" />
             <span>Orders</span>
