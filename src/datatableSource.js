@@ -8,13 +8,13 @@ export const userColumns = [
       return (
         <div className="cellWidthImg">
           <img src={params.row.img} alt="" className="cellImg" />
-          {params.row.username}
+          <span>{params.row.username}</span>
         </div>
       );
     },
   },
   { field: "email", headerName: "Email", width: 250 },
-  { field: "age", headerName: "Age", width: 70 },
+  { field: "address", headerName: "Address", width: 200 },
   { field: "status", headerName: "Status", width: 150 , renderCell:(params)=>{
     return(
       <div className={`cellStatus ${params.row.status}`}>{params.row.status}</div>

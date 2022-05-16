@@ -15,11 +15,14 @@ import {
 import { auth, db, storage } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { useNavigate } from "react-router-dom";
 
 export const New = ({ input, title }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [percent,setPercent] = useState(null)
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     const uploadFile = () => {
@@ -70,10 +73,11 @@ export const New = ({ input, title }) => {
         data.password
       );
 
-      await setDoc(doc(db, "user", res.user.uid), {
+      await setDoc(doc(db, "users", res.user.uid), {
         ...data,
         timestamp: serverTimestamp(),
       });
+      navigate(-1)
     } catch (err) {
       console.log(err);
     }

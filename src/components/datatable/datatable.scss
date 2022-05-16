@@ -22,7 +22,7 @@
     border-radius: 10px;
     background-color: #00921b34;
 
-    &:hover{
+    &:hover {
       box-shadow: unset;
     }
   }
@@ -30,12 +30,15 @@
   .cellWidthImg {
     display: flex;
     align-items: center;
-
+    
     .cellImg {
       width: 35px;
       height: 35px;
       border-radius: 50%;
       object-fit: cover;
+    }
+    span {
+      margin-left: 20px;
     }
   }
   .cellStatus {
@@ -64,12 +67,15 @@
       border-radius: 5px;
       color: black;
       border: 1px solid rgb(77, 77, 77);
+      cursor: pointer;
+
     }
     .deleteBtn {
       padding: 2px 5px;
       border-radius: 5px;
       color: #d80000;
       border: 1px solid rgb(155, 57, 57);
+      cursor: pointer;
     }
   }
 }

@@ -2,20 +2,81 @@ import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../datatableSource";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {
+  collection,
+  getDocs,
+  doc,
+  deleteDoc,
+  onSnapshot,
+} from "firebase/firestore";
+import { db } from "../../firebase";
 
 export const Datatable = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // const fetchData = async () => {
+    //   let list = [];
+    //   try {
+    //     const querySnapshot = await getDocs(collection(db, "users"));
+    //     querySnapshot.forEach((doc) => {
+    //       list.push({ id: doc.id, ...doc.data() });
+    //     });
+    //     console.log(list);
+    //     setData(list);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
+    // fetchData();
+
+    // realtime
+
+    const unsub = onSnapshot(
+      collection(db, "users"),
+      (snapShot) => {
+        let list = [];
+        snapShot.docs.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+        setData(list);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+
+    return ()=>{
+      unsub()
+    }
+  }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteDoc(doc(db, "users", id));
+      setData(data.filter((item) => item.id !== id));
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const actionClumns = [
     {
       field: "action",
       headerName: "Action",
       width: 200,
-      renderCell: () => {
+      renderCell: (params) => {
         return (
           <div className="cellAction">
             <Link to="/users/test">
               <div className="viewBtn">View</div>
             </Link>
-            <div className="deleteBtn">Delete</div>
+            <div
+              className="deleteBtn"
+              onClick={() => handleDelete(params.row.id)}
+            >
+              Delete
+            </div>
           </div>
         );
       },
@@ -31,11 +92,9 @@ export const Datatable = () => {
       </div>
 
       <DataGrid
-        rows={userRows}
+        rows={data}
         columns={userColumns.concat(actionClumns)}
-        // pageSize={15}
-        // rowsPerPageOptions={[15]}
-        checkboxSelection
+        // checkboxSelection
       />
     </div>
   );
